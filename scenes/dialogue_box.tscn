@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bf0hfsru0r1rv"]
 
-[ext_resource type="Script" uid="uid://cjevtaccty331" path="res://scripts/dialogue-box.gd" id="1_hvmm2"]
 [ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="1_rc1id"]
 [ext_resource type="Texture2D" uid="uid://pbqadj8wne6r" path="res://textures/icons/chars/bacxkground.png" id="2_fu8b5"]
 [ext_resource type="Texture2D" uid="uid://dd37q5c14tc04" path="res://textures/icons/chars/unk.png" id="3_tm68y"]
 [ext_resource type="Texture2D" uid="uid://d0dtmjhrg3loq" path="res://textures/icons/keys/space.png" id="5_p0wdv"]
+[ext_resource type="AudioStream" uid="uid://ddvh771gjryib" path="res://sounds/sfx/char.ogg" id="5_pehjr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fu8b5"]
 font = ExtResource("1_rc1id")
@@ -18,33 +18,6 @@ region = Rect2(0, 0, 28, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0wdv"]
 atlas = ExtResource("5_p0wdv")
 region = Rect2(0, 16, 28, 16)
-
-[sub_resource type="Animation" id="Animation_p0wdv"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Vector2(0, 64), Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_pehjr"]
 length = 0.001
@@ -73,6 +46,33 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_p0wdv"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 64), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pehjr"]
 _data = {
 &"RESET": SubResource("Animation_pehjr"),
@@ -86,7 +86,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hvmm2")
 
 [node name="margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -141,6 +140,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="text" type="Label" parent="margin/dialogue-plate/plate-outline/margin/plate-background/margin"]
+custom_minimum_size = Vector2(564, 152)
 layout_mode = 2
 size_flags_vertical = 1
 text = "example test xds. bla-bla-bla-ble-ble-ble dfc df d dsf sd sg s g sg dsgdsg fsd gsdg sdg sdg g fdghb dfg h fgh fgh brfgd b45 h 465tjh 65j h65jh 54e 6h g5234h 45th 24jh 42 jh4 5 45h h 465  j 65 y45 hy54h 654 67o  867o k 785 j5 jh54 h534 6 j 56kj 45 k 7uk 467j h5 h5 6j675 jkm 46 k7 k 4 u675 jn 5 j r23f432."
@@ -180,3 +180,6 @@ texture = SubResource("AtlasTexture_p0wdv")
 libraries = {
 &"": SubResource("AnimationLibrary_pehjr")
 }
+
+[node name="char-sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pehjr")

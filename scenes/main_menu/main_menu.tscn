@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://wp0outqr8uma" path="res://scenes/main_menu/main-menu.gd" id="1_fsom3"]
 [ext_resource type="Shader" uid="uid://v2bludomga6l" path="res://shaders/bitmap.gdshader" id="1_wem23"]
+[ext_resource type="LabelSettings" uid="uid://bx0ndkbybiwvk" path="res://tres/basic_label.tres" id="3_3ovsr"]
 [ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="3_uqeha"]
-[ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="3_wem23"]
 [ext_resource type="Script" uid="uid://cmm3dkv1ke2g0" path="res://scenes/main_menu/button.gd" id="5_wem23"]
+[ext_resource type="AudioStream" uid="uid://1jq2fnm8ho7n" path="res://sounds/musics/main_menu_0.mp3" id="6_3ovsr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wem23"]
 shader = ExtResource("1_wem23")
@@ -20,14 +21,10 @@ colors = PackedColorArray(1, 0.666667, 0, 1, 1, 0.8, 0, 1, 1, 0.916667, 0, 1)
 noise_type = 5
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ovsr"]
-width = 64
+width = 128
 height = 64
 color_ramp = SubResource("Gradient_uqeha")
 noise = SubResource("FastNoiseLite_wem23")
-
-[sub_resource type="LabelSettings" id="LabelSettings_3ovsr"]
-font = ExtResource("3_wem23")
-font_size = 128
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wem23"]
 bg_color = Color(1, 0, 0, 0)
@@ -94,7 +91,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("menu/margin/title-label:text")
+tracks/1/path = NodePath("menu/margin/control/title-label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,38 +103,110 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("menu/margin/v_box_container/start-game:modulate")
+tracks/2/path = NodePath("menu/margin/v_box_container/control-0/start-game:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("menu/margin/v_box_container/settings:modulate")
+tracks/3/path = NodePath("menu/margin/v_box_container/control-1/settings:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("menu/margin/v_box_container/control/exit:modulate")
+tracks/4/path = NodePath("menu/margin/v_box_container/control-2/exit:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("music_bg:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("music_bg:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("music_bg:stream_paused")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("music_bg:autoplay")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("menu/background:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.45)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("menu/margin/control/title-label:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0610865]
 }
 
 [sub_resource type="Animation" id="Animation_uqeha"]
@@ -158,7 +227,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("menu/margin/title-label:text")
+tracks/1/path = NodePath("menu/margin/control/title-label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -170,7 +239,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("menu/margin/v_box_container/start-game:modulate")
+tracks/2/path = NodePath("menu/margin/v_box_container/control-0/start-game:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -182,7 +251,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("menu/margin/v_box_container/settings:modulate")
+tracks/3/path = NodePath("menu/margin/v_box_container/control-1/settings:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -194,7 +263,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("menu/margin/v_box_container/control/exit:modulate")
+tracks/4/path = NodePath("menu/margin/v_box_container/control-2/exit:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -202,6 +271,54 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("music_bg:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("music_bg:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("music_bg:stream_paused")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("music_bg:autoplay")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wem23"]
@@ -248,6 +365,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.45)
+pivot_offset = Vector2(640, 384)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("NoiseTexture2D_3ovsr")
@@ -265,12 +384,25 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="title-label" type="Label" parent="menu/margin"]
+[node name="control" type="Control" parent="menu/margin"]
 layout_mode = 2
+size_flags_vertical = 0
+
+[node name="title-label" type="Label" parent="menu/margin/control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_right = 280.0
+offset_bottom = 128.0
+grow_horizontal = 2
+rotation = -0.0610865
+pivot_offset = Vector2(280, 64)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "FLASH"
-label_settings = SubResource("LabelSettings_3ovsr")
+label_settings = ExtResource("3_3ovsr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -278,11 +410,28 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 48
+theme_override_constants/separation = 84
+alignment = 1
 
-[node name="start-game" type="Button" parent="menu/margin/v_box_container"]
-modulate = Color(1, 1, 1, 0)
+[node name="control-0" type="Control" parent="menu/margin/v_box_container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="start-game" type="Button" parent="menu/margin/v_box_container/control-0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -24.0
+offset_right = 247.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(247, 24)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_uqeha")
@@ -290,9 +439,25 @@ text = "НАЧАТЬ ИГРУ"
 icon_alignment = 1
 script = ExtResource("5_wem23")
 
-[node name="settings" type="Button" parent="menu/margin/v_box_container"]
-modulate = Color(1, 1, 1, 0)
+[node name="control-1" type="Control" parent="menu/margin/v_box_container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="settings" type="Button" parent="menu/margin/v_box_container/control-1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -24.0
+offset_right = 205.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(205, 24)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_uqeha")
@@ -300,12 +465,12 @@ text = "НАСТРОЙКИ"
 icon_alignment = 1
 script = ExtResource("5_wem23")
 
-[node name="control" type="Control" parent="menu/margin/v_box_container"]
+[node name="control-2" type="Control" parent="menu/margin/v_box_container"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
 
-[node name="exit" type="Button" parent="menu/margin/v_box_container/control"]
-modulate = Color(1, 1, 1, 0)
+[node name="exit" type="Button" parent="menu/margin/v_box_container/control-2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -313,8 +478,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.0
+offset_top = -24.0
 offset_right = 163.0
-offset_bottom = 48.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(163, 24)
@@ -333,3 +499,10 @@ script = ExtResource("5_wem23")
 libraries = {
 &"": SubResource("AnimationLibrary_wem23")
 }
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="music_bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3ovsr")
+volume_db = -80.0
+autoplay = true

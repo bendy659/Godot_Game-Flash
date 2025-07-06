@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=24
 config/icon="uid://b4pi3d0lmhfu7"
 
+[autoload]
+
+DialogueBox="*res://scripts/global/DialogueBox.gd"
+GameSettings="*res://scripts/global/GameSettings.gd"
+
 [display]
 
 window/size/viewport_width=1280

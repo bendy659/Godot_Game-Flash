@@ -1,0 +1,287 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgi0rrtyiftvu"]
+
+[ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="1_1uif8"]
+[ext_resource type="Script" uid="uid://b87il1vnlkugr" path="res://scenes/main_menu/settings.gd" id="1_110wl"]
+[ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="2_hguh2"]
+
+[sub_resource type="Gradient" id="Gradient_e6iu5"]
+interpolation_mode = 1
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.156863, 0.341176, 0.509804, 0.686275)
+colors = PackedColorArray(0, 0, 0, 1, 0.237539, 0.237539, 0.237539, 1, 0.404511, 0.404511, 0.404511, 1, 0.589096, 0.589096, 0.589096, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1uif8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hguh2"]
+width = 128
+height = 128
+color_ramp = SubResource("Gradient_e6iu5")
+noise = SubResource("FastNoiseLite_1uif8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_110wl"]
+font = ExtResource("2_hguh2")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_e6iu5"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/texture_rect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [0.0, 0.113446]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background/texture_rect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("background/texture_rect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(0.4, 0.4, 0.4, 0), Color(0.400698, 0.400698, 0.400698, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("margin/control/panel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 64), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1uif8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/texture_rect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.113446]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background/texture_rect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.25, 1.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("background/texture_rect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.400698, 0.400698, 0.400698, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("margin/control/panel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hguh2"]
+_data = {
+&"RESET": SubResource("Animation_1uif8"),
+&"show": SubResource("Animation_e6iu5")
+}
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_110wl")
+
+[node name="background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="texture_rect" type="TextureRect" parent="background"]
+modulate = Color(0.400698, 0.400698, 0.400698, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.113446
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(640, 360)
+texture = SubResource("NoiseTexture2D_hguh2")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 96
+
+[node name="control" type="Control" parent="margin"]
+layout_mode = 2
+
+[node name="panel" type="Panel" parent="margin/control"]
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(384, 264)
+
+[node name="tab_container" type="TabContainer" parent="margin/control/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(384, 264)
+theme = ExtResource("1_1uif8")
+tab_alignment = 1
+current_tab = 0
+
+[node name="УПРАВЛЕНИЕ" type="Panel" parent="margin/control/panel/tab_container"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="margin" type="MarginContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 16
+
+[node name="v_box_container" type="VBoxContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin"]
+layout_mode = 2
+
+[node name="h_box_container" type="HBoxContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="name" type="Label" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container/h_box_container"]
+layout_mode = 2
+text = "чуствительность мыши"
+label_settings = SubResource("LabelSettings_110wl")
+vertical_alignment = 1
+uppercase = true
+
+[node name="mouse" type="HSlider" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container/h_box_container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_1uif8")
+min_value = 1.0
+max_value = 5.0
+step = 0.01
+value = 1.0
+
+[node name="value" type="Label" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "1.0"
+label_settings = SubResource("LabelSettings_110wl")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="ЗВУКИ" type="Panel" parent="margin/control/panel/tab_container"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ГРАФИКА" type="Panel" parent="margin/control/panel/tab_container"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="animations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hguh2")
+}
+
+[connection signal="value_changed" from="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container/h_box_container/mouse" to="." method="_on_mouse_value_changed"]

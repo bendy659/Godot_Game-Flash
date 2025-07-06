@@ -27,10 +27,30 @@ func _physics_process(delta: float) -> void:
 	elif !is_hovered() && name == "exit":
 		position = lerp(position, exit_origin_pos, delta * 10)
 	
-	match name:
-		"start-game":
-			pass
-		"settings":
-			pass
-		"exit":
-			pass
+	if button_pressed:
+		match name:
+			"start-game":
+				pass
+			"settings":
+				disabled = true
+				GameSettings.open()
+				disabled = false
+			"exit":
+				disabled = true
+				DialogueBox.create(
+					[
+						DialogueBox.DialogueContext.new(
+							"XDDDXDXDDX",
+							"unk"
+						),
+						DialogueBox.DialogueContext.new(
+							"Иш чё захотел...",
+							"unk"
+						),
+						DialogueBox.DialogueContext.new(
+							"Ты еще даже не начал, а уже ссышся и домой просишся",
+							"unk"
+						)
+					]
+				)
+				disabled = false
