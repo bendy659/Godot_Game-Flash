@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbayk8hukbhcg"]
+[gd_scene load_steps=17 format=3 uid="uid://cbayk8hukbhcg"]
 
 [ext_resource type="Script" uid="uid://wp0outqr8uma" path="res://scenes/main_menu/main-menu.gd" id="1_fsom3"]
 [ext_resource type="Shader" uid="uid://v2bludomga6l" path="res://shaders/bitmap.gdshader" id="1_wem23"]
 [ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="3_uqeha"]
 [ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="3_wem23"]
+[ext_resource type="Script" uid="uid://cmm3dkv1ke2g0" path="res://scenes/main_menu/button.gd" id="5_wem23"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wem23"]
 shader = ExtResource("1_wem23")
@@ -27,6 +28,54 @@ noise = SubResource("FastNoiseLite_wem23")
 [sub_resource type="LabelSettings" id="LabelSettings_3ovsr"]
 font = ExtResource("3_wem23")
 font_size = 128
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wem23"]
+bg_color = Color(1, 0, 0, 0)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_color = Color(1, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 24.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ovsr"]
+bg_color = Color(0.5, 0, 0, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(1, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 24.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqeha"]
+bg_color = Color(1, 0, 0, 0)
+border_width_left = 16
+border_width_right = 16
+border_color = Color(1, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 24.0
+expand_margin_bottom = 16.0
 
 [sub_resource type="Animation" id="Animation_wem23"]
 length = 0.001
@@ -57,10 +106,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("menu/margin/start-game:modulate")
+tracks/2/path = NodePath("menu/margin/v_box_container/start-game:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("menu/margin/v_box_container/settings:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu/margin/v_box_container/control/exit:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -97,12 +170,36 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("menu/margin/start-game:modulate")
+tracks/2/path = NodePath("menu/margin/v_box_container/start-game:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(1, 2),
 "transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("menu/margin/v_box_container/settings:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu/margin/v_box_container/control/exit:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -177,7 +274,13 @@ label_settings = SubResource("LabelSettings_3ovsr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="start-game" type="Button" parent="menu/margin"]
+[node name="v_box_container" type="VBoxContainer" parent="menu/margin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+
+[node name="start-game" type="Button" parent="menu/margin/v_box_container"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -185,6 +288,46 @@ size_flags_vertical = 4
 theme = ExtResource("3_uqeha")
 text = "НАЧАТЬ ИГРУ"
 icon_alignment = 1
+script = ExtResource("5_wem23")
+
+[node name="settings" type="Button" parent="menu/margin/v_box_container"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_uqeha")
+text = "НАСТРОЙКИ"
+icon_alignment = 1
+script = ExtResource("5_wem23")
+
+[node name="control" type="Control" parent="menu/margin/v_box_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="exit" type="Button" parent="menu/margin/v_box_container/control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_right = 163.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(163, 24)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_uqeha")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_wem23")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ovsr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqeha")
+text = "ВЫРУБАЙ"
+icon_alignment = 1
+script = ExtResource("5_wem23")
 
 [node name="animations" type="AnimationPlayer" parent="."]
 libraries = {
