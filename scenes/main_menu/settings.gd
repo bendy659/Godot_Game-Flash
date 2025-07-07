@@ -85,3 +85,15 @@ func _on_general_volume_changed(value: float) -> void:
 func _on_music_volume_changed(value: float) -> void:
 	music_vol = value
 	music_lab.text = str(int(value * 100)) + "%"
+
+func _on_env_volume_changed(value: float) -> void:
+	env_vol = value
+	env_lab.text = str(int(value * 100)) + "%"
+
+func _on_ui_volume_changed(value: float) -> void:
+	ui_vol = value
+	ui_lab.text = str(int(value * 100)) + "%"
+
+func _on_sfx_volume_changed(value: float) -> void:
+	sfx_vol = value
+	sfx_lab.text = str(int(value * 100)) + "%"

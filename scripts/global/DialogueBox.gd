@@ -72,8 +72,12 @@ func create(
 		dialogue_box.get_node("char-sfx")
 	) as AudioStreamPlayer
 	
+	GameSettings.add_stream("sfx", [sfx])
+	
 	## Dialoging
 	anim.play("show")
+	
+	sfx.volume_db = linear_to_db(GameSettings.get_volume("sfx"))
 	
 	for line in lines:
 		var text_line = line.text
