@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ciboxp4j6lnpb"]
+
+[resource]
+resource_name = "Material"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.247222, 0.560623, 0.906473, 0.5)
+metallic = 1.0
+roughness = 0.140625

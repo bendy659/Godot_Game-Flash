@@ -20,6 +20,7 @@ config/icon="uid://b4pi3d0lmhfu7"
 
 DialogueBox="*res://scripts/global/DialogueBox.gd"
 GameSettings="*res://scripts/global/GameSettings.gd"
+Player="*res://scripts/global/Player.gd"
 
 [display]
 

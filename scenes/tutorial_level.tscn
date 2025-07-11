@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bohi0iy81ophn"]
+
+[ext_resource type="PackedScene" uid="uid://cm2o7867hvc0w" path="res://scenes/tutorial/tutorial_terrain.tscn" id="1_gk31l"]
+[ext_resource type="PackedScene" uid="uid://dnbk8u75pd0xn" path="res://scenes/player.tscn" id="2_nm3d5"]
+
+[node name="tutorial_level" type="Node3D"]
+
+[node name="terrain" parent="." instance=ExtResource("1_gk31l")]
+
+[node name="Player" parent="." instance=ExtResource("2_nm3d5")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.1, -8)

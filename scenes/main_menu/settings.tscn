@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bgi0rrtyiftvu"]
 
 [ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="1_1uif8"]
-[ext_resource type="Script" uid="uid://b87il1vnlkugr" path="res://scenes/main_menu/settings.gd" id="1_110wl"]
+[ext_resource type="Script" uid="uid://b87il1vnlkugr" path="res://scripts/settings.gd" id="1_110wl"]
 [ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="2_hguh2"]
 [ext_resource type="Texture2D" uid="uid://cal3wshiyqrum" path="res://textures/icons/keys/exit.png" id="4_1tatf"]
 [ext_resource type="Texture2D" uid="uid://bmj4oqg4lxgus" path="res://textures/icons/keys/save.png" id="5_ilrlu"]
@@ -237,7 +237,7 @@ grow_vertical = 2
 pivot_offset = Vector2(384, 264)
 theme = ExtResource("1_1uif8")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="УПРАВЛЕНИЕ" type="Panel" parent="margin/control/panel/tab_container"]
 visible = false
@@ -289,6 +289,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="ЗВУКИ" type="Panel" parent="margin/control/panel/tab_container"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -485,7 +486,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="ГРАФИКА" type="Panel" parent="margin/control/panel/tab_container"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
