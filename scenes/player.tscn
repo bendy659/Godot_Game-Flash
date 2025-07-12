@@ -1,6 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://dnbk8u75pd0xn"]
+[gd_scene load_steps=27 format=4 uid="uid://dnbk8u75pd0xn"]
 
 [ext_resource type="Script" uid="uid://h0vo24eqduem" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bsglwu8ydqfu0" path="res://textures/interface/battery_energy.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://b3t31gw231spo" path="res://textures/interface/numbers.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b7cc527kj0w65" path="res://textures/interface/percentage_icon.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cu7qlft6mw0er" path="res://textures/cursor_dot.png" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -158,6 +162,46 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, 0.261799)]
 }
 
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "get_item"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, -2),
+"update": 0,
+"values": [Vector3(-0.436332, 0.349066, 0.261799), Vector3(0.143117, -0.214676, 0.0628319), Vector3(0, 0, 0.261799)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, -2),
+"update": 0,
+"values": [Vector3(0.5, -1, -0.75), Vector3(0.563, -0.436, -0.686), Vector3(0.5, -0.5, -0.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, -2),
+"update": 0,
+"values": [Vector3(-0.0261799, 0, -0.0349066), Vector3(0.0174533, 0, 0.0191986), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_3vyb7"]
 resource_name = "idle"
 length = 4.0
@@ -252,46 +296,6 @@ tracks/2/keys = {
 "values": [Vector3(0, -0.0261799, 0.261799), Vector3(-0.0436332, 0, 0.261799), Vector3(0, 0.0261799, 0.261799), Vector3(-0.0436332, 0, 0.261799), Vector3(0, -0.0261799, 0.261799)]
 }
 
-[sub_resource type="Animation" id="Animation_dqkch"]
-resource_name = "get_item"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(0.5, 2, -2),
-"update": 0,
-"values": [Vector3(-0.436332, 0.349066, 0.261799), Vector3(0.143117, -0.214676, 0.0628319), Vector3(0, 0, 0.261799)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/hand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(0.5, 2, -2),
-"update": 0,
-"values": [Vector3(0.5, -1, -0.75), Vector3(0.563, -0.436, -0.686), Vector3(0.5, -0.5, -0.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(0.5, 2, -2),
-"update": 0,
-"values": [Vector3(-0.0261799, 0, -0.0349066), Vector3(0.0174533, 0, 0.0191986), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g2els"]
 _data = {
 &"RESET": SubResource("Animation_g2els"),
@@ -311,7 +315,7 @@ animation = &"walk"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3vyb7"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tuyoq"]
-graph_offset = Vector2(-633.106, 132.955)
+graph_offset = Vector2(-581.836, 190.025)
 nodes/Blend_Pose/node = SubResource("AnimationNodeBlend2_qhqgy")
 nodes/Blend_Pose/position = Vector2(-120, 120)
 nodes/Pose_Idle/node = SubResource("AnimationNodeAnimation_dqkch")
@@ -322,6 +326,22 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_3vyb7")
 nodes/TimeScale/position = Vector2(40, 140)
 nodes/output/position = Vector2(200, 180)
 node_connections = [&"Blend_Pose", 0, &"Pose_Idle", &"Blend_Pose", 1, &"Pose_Walk", &"TimeScale", 0, &"Blend_Pose", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 23, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(36, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(36, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(36, 0, 4, 7)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_3vyb7")
@@ -362,4 +382,103 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_tuyoq")
 anim_player = NodePath("../animator")
 parameters/Blend_Pose/blend_amount = 0.0
-parameters/TimeScale/scale = 0.0277778
+parameters/TimeScale/scale = 1.0
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+
+[node name="margin" type="MarginContainer" parent="canvas_layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="battery_indicator" type="Control" parent="canvas_layer/margin"]
+layout_mode = 2
+
+[node name="sprite" type="TextureRect" parent="canvas_layer/margin/battery_indicator"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 23.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(0, 10)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_qhqgy")
+
+[node name="num_sotnya" type="TextureRect" parent="canvas_layer/margin/battery_indicator"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -7.0
+offset_right = 100.0
+grow_vertical = 0
+scale = Vector2(5.75, 5.75)
+pivot_offset = Vector2(0, 7)
+texture = SubResource("AtlasTexture_dqkch")
+
+[node name="num_desyatki" type="TextureRect" parent="canvas_layer/margin/battery_indicator"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = -7.0
+offset_right = 123.0
+grow_vertical = 0
+scale = Vector2(5.75, 5.75)
+pivot_offset = Vector2(0, 7)
+texture = SubResource("AtlasTexture_qlg0r")
+
+[node name="num_edenicy" type="TextureRect" parent="canvas_layer/margin/battery_indicator"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 142.0
+offset_top = -7.0
+offset_right = 146.0
+grow_vertical = 0
+scale = Vector2(5.75, 5.75)
+pivot_offset = Vector2(0, 7)
+texture = SubResource("AtlasTexture_tuyoq")
+
+[node name="percentage_icon" type="TextureRect" parent="canvas_layer/margin/battery_indicator"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 165.0
+offset_top = -7.0
+offset_right = 172.0
+grow_vertical = 0
+scale = Vector2(5.75, 5.75)
+pivot_offset = Vector2(0, 7)
+texture = ExtResource("4_dqkch")
+expand_mode = 1
+
+[node name="cursor_dot" type="TextureRect" parent="canvas_layer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_qlg0r")

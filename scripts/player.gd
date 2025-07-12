@@ -1,14 +1,43 @@
-extends Player
+extends CharacterBody3D
+
+### === [ Variable's ] ===
+
+@export var move_speed: float = 1.0
+@export var move_run: float = 1.0
+@export var jump_force: float = 1.0
+
+@export var crouch_lower: float = 1.0
+@export var crouch_speed: float = 1.0
+
+## ----
+
+@onready var animator: AnimationPlayer
+@onready var animator_tree: AnimationTree
 
 @onready var hitbhox_preview = $hitbox/preview_hitbox
 
-@onready var p_animator = $animator
-@onready var p_animator_tree = $animator_tree
+## ----
+
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+### ===
+
+### === [ Main ] ===
 
 func _ready() -> void:
-	## Apply
-	animator = p_animator
-	animator_tree = p_animator_tree
-	
 	## Disable hitbox preview
 	hitbhox_preview.visible = false
+
+func _physics_process(delta: float) -> void:
+	pass
+
+func _process(delta: float) -> void:
+	pass
+
+### ===
+
+### === [ Util's ] ===
+
+
+
+### ===

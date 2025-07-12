@@ -2,6 +2,10 @@ extends Node
 
 var canvas_layer: CanvasLayer
 
+## ОБЩЕЕ
+var language: String = "ru"
+var debug_mode: bool = false
+
 ## УПРАВЛЕНИЕ
 var mouse_senc: float = 1.0
 

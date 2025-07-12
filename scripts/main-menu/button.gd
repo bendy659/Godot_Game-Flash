@@ -37,20 +37,30 @@ func _physics_process(delta: float) -> void:
 				disabled = false
 			"exit":
 				disabled = true
+				var dialogue_box_context: Array[DialogueBox.DialogueContext] = []
+				
+				var dials = Languages.translate_array("dialogues.main_menu.button_leave")
+				for i in dials:
+					#dialogue_box_context.clear()
+					dialogue_box_context += [DialogueBox.DialogueContext.new(i, "unk")]
+				
+				print_debug("%s\n%s" % [dials, dialogue_box_context])
+				
 				DialogueBox.create(
-					[
-						DialogueBox.DialogueContext.new(
-							"XDDDXDXDDX",
-							"unk"
-						),
-						DialogueBox.DialogueContext.new(
-							"Иш чё захотел...",
-							"unk"
-						),
-						DialogueBox.DialogueContext.new(
-							"Ты еще даже не начал, а уже ссышся и домой просишся",
-							"unk"
-						)
-					]
+					#[
+					#	DialogueBox.DialogueContext.new(
+					#		"XDDDXDXDDX",
+					#		"unk"
+					#	),
+					#	DialogueBox.DialogueContext.new(
+					#		"Иш чё захотел...",
+					#		"unk"
+					#	),
+					#	DialogueBox.DialogueContext.new(
+					#		"Ты еще даже не начал, а уже ссышся и домой просишся",
+					#		"unk"
+					#	)
+					#]
+					dialogue_box_context
 				)
 				disabled = false

@@ -4,3 +4,4 @@ extends Node3D
 
 func _ready() -> void:
 	water_wave_anim.play("wave")
+	GameData.is_game_pause = false

@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://cbayk8hukbhcg"]
 
-[ext_resource type="Script" uid="uid://wp0outqr8uma" path="res://scripts/main-menu.gd" id="1_fsom3"]
+[ext_resource type="Script" uid="uid://wp0outqr8uma" path="res://scripts/main-menu/main-menu.gd" id="1_fsom3"]
 [ext_resource type="Shader" uid="uid://v2bludomga6l" path="res://shaders/bitmap.gdshader" id="1_wem23"]
 [ext_resource type="LabelSettings" uid="uid://bx0ndkbybiwvk" path="res://tres/basic_label.tres" id="3_3ovsr"]
 [ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="3_uqeha"]
-[ext_resource type="Script" uid="uid://cmm3dkv1ke2g0" path="res://scripts/button.gd" id="5_wem23"]
+[ext_resource type="Script" uid="uid://cmm3dkv1ke2g0" path="res://scripts/main-menu/button.gd" id="5_wem23"]
 [ext_resource type="AudioStream" uid="uid://1jq2fnm8ho7n" path="res://sounds/musics/main_menu_0.mp3" id="6_3ovsr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wem23"]

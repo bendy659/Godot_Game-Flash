@@ -1,0 +1,280 @@
+[gd_scene load_steps=16 format=3 uid="uid://du63dbdx733wt"]
+
+[ext_resource type="Texture2D" uid="uid://bgya56gquay2m" path="res://textures/loading_screen/progress_bar_bg.png" id="1_ep5rh"]
+[ext_resource type="Script" uid="uid://crxqaq5tlbav2" path="res://scripts/loading-screen.gd" id="1_ku3bi"]
+[ext_resource type="Texture2D" uid="uid://bnlfb31bbgige" path="res://textures/loading_screen/progress_bar_line.png" id="2_hprjd"]
+[ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="4_5phy8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hprjd"]
+atlas = ExtResource("1_ep5rh")
+region = Rect2(4, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5phy8"]
+atlas = ExtResource("1_ep5rh")
+region = Rect2(0, 0, 4, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku3bi"]
+atlas = ExtResource("1_ep5rh")
+region = Rect2(12, 0, 4, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djmwj"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(7, 0, 2, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qygbf"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(3, 0, 4, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu4a1"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(9, 0, 4, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_djmwj"]
+font = ExtResource("4_5phy8")
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_hprjd"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("margin/control/bar-line:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("margin/control/bar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(480, 712), Vector2(480, 640)]
+}
+
+[sub_resource type="Animation" id="Animation_ku3bi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("margin/control/bar-line:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("margin/control/bar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 640)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("margin/control/bar-line:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("margin/control/bar-line/end:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5phy8"]
+resource_name = "progress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("margin/control/bar-line:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 16), Vector2(250, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("margin/control/bar-line/end:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(250, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djmwj"]
+_data = {
+&"RESET": SubResource("Animation_ku3bi"),
+&"progress": SubResource("Animation_5phy8"),
+&"show": SubResource("Animation_hprjd")
+}
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ku3bi")
+
+[node name="color_rect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="control" type="Control" parent="margin"]
+layout_mode = 2
+
+[node name="bar" type="TextureRect" parent="margin/control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -16.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(128, 16)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_hprjd")
+
+[node name="start" type="TextureRect" parent="margin/control/bar"]
+layout_mode = 2
+offset_left = -4.0
+offset_bottom = 16.0
+pivot_offset = Vector2(4, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_5phy8")
+
+[node name="end" type="TextureRect" parent="margin/control/bar"]
+layout_mode = 2
+offset_left = 256.0
+offset_right = 260.0
+offset_bottom = 16.0
+pivot_offset = Vector2(0, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_ku3bi")
+
+[node name="bar-line" type="TextureRect" parent="margin/control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -16.0
+offset_right = 31.28
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(128, 16)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_djmwj")
+
+[node name="start" type="TextureRect" parent="margin/control/bar-line"]
+layout_mode = 2
+offset_left = -4.5
+offset_right = -0.5
+offset_bottom = 16.0
+pivot_offset = Vector2(4, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_qygbf")
+
+[node name="end" type="TextureRect" parent="margin/control/bar-line"]
+layout_mode = 2
+offset_left = 153.28
+offset_right = 157.28
+offset_bottom = 16.0
+pivot_offset = Vector2(0, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_pu4a1")
+
+[node name="margin" type="MarginContainer" parent="margin/control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 48
+
+[node name="progress_label" type="Label" parent="margin/control/margin"]
+layout_mode = 2
+text = "100.00%"
+label_settings = SubResource("LabelSettings_djmwj")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_djmwj")
+}

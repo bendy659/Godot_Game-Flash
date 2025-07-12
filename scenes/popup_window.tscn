@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d33r5q7dxwf"]
+
+[node name="control" type="Node2D"]
+
+[node name="window" type="Window" parent="."]
+title = "XZD"
+initial_position = 1
+
+[node name="camera_2d" type="Camera2D" parent="window"]
