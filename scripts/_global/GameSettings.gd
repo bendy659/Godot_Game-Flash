@@ -26,10 +26,11 @@ var pixelization: int = 4
 
 ## ====
 
+var setting_menu: Control = null
 var settings_menu_is_opened: bool = false
 
 ### === [ Main ] ===
-var menu: Node
+var menu: Node = null
 var menu_bg: TextureRect
 var menu_anim: AnimationPlayer
 var exit: TextureButton
@@ -81,14 +82,15 @@ func open() -> void:
 	settings_menu_is_opened = true
 	
 	## Add child to canvas layer
-	var settings_menu_scene = preload("res://scenes/main_menu/settings.tscn")
-	var settings_menu = settings_menu_scene.instantiate()
-	canvas_layer.add_child(settings_menu)
-	menu = settings_menu
+	if !menu:
+		var settings_menu_scene = preload("res://scenes/main_menu/settings.tscn")
+		menu = settings_menu_scene.instantiate()
 	
-	menu_bg = settings_menu.get_node("background/texture_rect") as TextureRect
-	menu_anim = settings_menu.get_node("animations") as AnimationPlayer
-	exit = settings_menu.get_node("margin/control/exit")
+	canvas_layer.add_child(menu)
+	
+	menu_bg = menu.get_node("background/texture_rect") as TextureRect
+	menu_anim = menu.get_node("animations") as AnimationPlayer
+	exit = menu.get_node("margin/control/exit")
 	
 	menu_anim.play("show")
 

@@ -102,18 +102,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("background/color_rect:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.878431)]
-}
 
 [sub_resource type="Animation" id="Animation_e6iu5"]
 resource_name = "show"
@@ -177,18 +165,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 64), Vector2(0, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("background/color_rect:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.35, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.878431)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hguh2"]
 _data = {
@@ -212,15 +188,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="color_rect" type="ColorRect" parent="background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.878431)
 
 [node name="texture_rect" type="TextureRect" parent="background"]
 modulate = Color(0.400698, 0.400698, 0.400698, 1)
@@ -263,15 +230,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(384, 264)
 theme = ExtResource("1_1uif8")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="ОБЩЕЕ" type="Panel" parent="margin/control/panel/tab_container"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -282,20 +250,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
+theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
 
 [node name="v_box_container" type="VBoxContainer" parent="margin/control/panel/tab_container/ОБЩЕЕ/margin"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="center" type="CenterContainer" parent="margin/control/panel/tab_container/ОБЩЕЕ/margin/v_box_container"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 2
+size_flags_vertical = 3
 
 [node name="language" type="HBoxContainer" parent="margin/control/panel/tab_container/ОБЩЕЕ/margin/v_box_container/center"]
 layout_mode = 2
@@ -322,9 +289,10 @@ metadata/_tab_index = 1
 
 [node name="margin" type="MarginContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 592.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 48
@@ -333,11 +301,10 @@ theme_override_constants/margin_bottom = 48
 
 [node name="v_box_container" type="VBoxContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin"]
 layout_mode = 2
-size_flags_horizontal = 0
 
 [node name="center" type="CenterContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="mouse_senc" type="HBoxContainer" parent="margin/control/panel/tab_container/УПРАВЛЕНИЕ/margin/v_box_container/center"]
@@ -374,6 +341,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="ЗВУКИ" type="Panel" parent="margin/control/panel/tab_container"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -384,7 +352,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
+theme_override_constants/margin_left = 105
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 48
@@ -397,6 +365,7 @@ alignment = 1
 
 [node name="center" type="CenterContainer" parent="margin/control/panel/tab_container/ЗВУКИ/margin/v_box_container"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="general_volume" type="HBoxContainer" parent="margin/control/panel/tab_container/ЗВУКИ/margin/v_box_container/center"]
 layout_mode = 2
@@ -405,7 +374,7 @@ theme_override_constants/separation = 16
 [node name="name" type="Label" parent="margin/control/panel/tab_container/ЗВУКИ/margin/v_box_container/center/general_volume"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Общая громкость"
 label_settings = SubResource("LabelSettings_110wl")
@@ -417,7 +386,6 @@ uppercase = true
 [node name="slider" type="HSlider" parent="margin/control/panel/tab_container/ЗВУКИ/margin/v_box_container/center/general_volume"]
 custom_minimum_size = Vector2(185, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("1_1uif8")
 max_value = 1.0

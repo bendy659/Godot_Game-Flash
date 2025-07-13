@@ -10,6 +10,67 @@ var translations: Dictionary = {
 		}
 	},
 	"main_menu": {
+		"tabs": {
+			"general": {
+				"ru": "Общее",
+				"en": "General",
+				
+				"language": {
+					"ru": "Язык",
+					"en": "Language"
+				}
+			},
+			"control": {
+				"ru": "Управление",
+				"en": "Control",
+				
+				"mouse_senc": {
+					"name": {
+						"ru": "Чувствительность мыши",
+						"en": "Mouse senc"
+					}
+				}
+			},
+			"sounds": {
+				"ru": "Звуки",
+				"en": "Sounds",
+				
+				"general": {
+					"name": {
+						"ru": "Общая",
+						"en": "General"
+					}
+				},
+				"music": {
+					"name": {
+						"ru": "Музыка",
+						"en": "Music"
+					}
+				},
+				"env": {
+					"name": {
+						"ru": "Окружение",
+						"en": "Environment"
+					}
+				},
+				"ui": {
+					"name": {
+						"ru": "UI",
+						"en": "UI"
+					}
+				},
+				"sfx": {
+					"name": {
+						"ru": "Звуковые эффекты",
+						"en": "SFX"
+					}
+				}
+			},
+			"graphics": {
+				"ru": "Графика",
+				"en": "Graphics"
+			}
+		},
 		"buttons": {
 			"start-game": {
 				"name": {
@@ -75,27 +136,35 @@ func _translate(id: String) -> Variant:
 	var result = translations
 	
 	for part in parts:
-		print_debug("Attempt founding [%s]" % part)
-		print_debug("Found components: [%s]" % result[part])
-		
 		if result.has(part):
 			result = result[part]
-	
-	print_debug("Founds final: %s" % result)
+			print_debug("Found component [%s]" % part)
+		else:
+			print_debug("Component [%s] not found in current level!" % part)
+			return id  # Not found - return id
 	
 	var c_lang = GameSettings.language
 	
-	if result.has(c_lang): return result[c_lang]
-	return id # Not found
+	if typeof(result) == TYPE_DICTIONARY and result.has(c_lang):
+		return result[c_lang]
+	
+	# if value in final - return result
+	if typeof(result) in [TYPE_STRING, TYPE_ARRAY]:
+		print_debug("Translation for '%s' found. Returning this '%s'" % [id, result])
+		return result
+	
+	print_debug("Translation for '%s' not found. Returning ID." % id)
+	return id
+
 
 func translate_label(id: String) -> String:
 	var result = _translate(id)
 	
-	if result is String: return result
+	if typeof(result) == TYPE_STRING: return result
 	else: return id
 
-func translate_array(id: String) -> Array[String]:
+func translate_array(id: String) -> Array:
 	var result = _translate(id)
 	
-	if result is Array[String]: return result
+	if typeof(result) == TYPE_ARRAY: return result
 	else: return [result]

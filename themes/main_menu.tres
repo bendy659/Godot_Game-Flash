@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=12 format=3 uid="uid://d1bdy7msk7dep"]
 
-[ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="1_djdlk"]
+[ext_resource type="FontFile" uid="uid://hbcmd4u1tc1d" path="res://fonts/Blockblueprint-LV7z5.ttf" id="1_djdlk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
 
@@ -60,30 +60,23 @@ script = SubResource("GDScript_djdlk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_058lc"]
 bg_color = Color(0.32, 0.32, 0.32, 1)
-border_width_top = 8
 border_color = Color(0.995025, 0.761943, 0, 1)
-expand_margin_left = 16.0
-expand_margin_right = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik4eo"]
-content_margin_left = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 bg_color = Color(0.824861, 0.524953, 9.62615e-07, 1)
+border_width_left = 4
 border_width_top = 4
+border_width_right = 4
 border_color = Color(0.995025, 0.761943, 0, 1)
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75ofa"]
-content_margin_left = 16.0
-content_margin_right = 16.0
+content_margin_left = 4.0
+content_margin_right = 4.0
 bg_color = Color(0.21, 0.21, 0.21, 1)
 border_color = Color(0.211765, 0.211765, 0.211765, 1)
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 8.0
 
 [resource]
 default_font = ExtResource("1_djdlk")
@@ -98,6 +91,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_djdlk")
 Button/styles/normal = SubResource("StyleBoxFlat_pl5h2")
 Button/styles/pressed = SubResource("StyleBoxFlat_va2tg")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ed0ms")
+TabContainer/constants/side_margin = 0
 TabContainer/font_sizes/font_size = 24
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_va2tg")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_058lc")

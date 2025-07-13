@@ -6,15 +6,15 @@ var is_game_pause: bool = false
 
 ## ----
 
-var langs: Dictionary = {
-	"ru": {
+var langs: Array[Dictionary] = [
+	{ # 0 - ru
 		"id": "ru",
-		"name": "Russian"
+		"name": "Russian (Русский)"
 	},
-	"en": {
+	{ # 1 - en
 		"id": "en",
-		"name": "English"
+		"name": "English (USA)"
 	}
-}
+]
 
 ### ===

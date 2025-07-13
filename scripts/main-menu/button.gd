@@ -7,9 +7,6 @@ func _ready() -> void:
 	if name == "exit": exit_origin_pos = position
 
 func _physics_process(delta: float) -> void:
-	if button_pressed:
-		print_debug("Кнопка " + name + " - нажата!")
-	
 	if is_hovered():
 		scale = lerp(scale, Vector2(1.25, 1.25), delta * 10)
 	else:
@@ -41,26 +38,9 @@ func _physics_process(delta: float) -> void:
 				
 				var dials = Languages.translate_array("dialogues.main_menu.button_leave")
 				for i in dials:
-					#dialogue_box_context.clear()
 					dialogue_box_context += [DialogueBox.DialogueContext.new(i, "unk")]
 				
 				print_debug("%s\n%s" % [dials, dialogue_box_context])
 				
-				DialogueBox.create(
-					#[
-					#	DialogueBox.DialogueContext.new(
-					#		"XDDDXDXDDX",
-					#		"unk"
-					#	),
-					#	DialogueBox.DialogueContext.new(
-					#		"Иш чё захотел...",
-					#		"unk"
-					#	),
-					#	DialogueBox.DialogueContext.new(
-					#		"Ты еще даже не начал, а уже ссышся и домой просишся",
-					#		"unk"
-					#	)
-					#]
-					dialogue_box_context
-				)
+				DialogueBox.create(dialogue_box_context)
 				disabled = false

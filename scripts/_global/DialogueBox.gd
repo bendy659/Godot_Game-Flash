@@ -84,7 +84,7 @@ func create(
 		var icon_type = line.icon
 		
 		to_next_line = false
-		line_text = ""
+		line_text = "\n"
 		space_icon.visible = false
 		space_pressed_icon.visible = false
 		

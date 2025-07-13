@@ -1,13 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf0hfsru0r1rv"]
+[gd_scene load_steps=16 format=3 uid="uid://bf0hfsru0r1rv"]
 
-[ext_resource type="FontFile" uid="uid://ytgjsfi5afts" path="res://fonts/pixelsior.otf" id="1_rc1id"]
+[ext_resource type="FontFile" uid="uid://hbcmd4u1tc1d" path="res://fonts/Blockblueprint-LV7z5.ttf" id="1_p0wdv"]
 [ext_resource type="Texture2D" uid="uid://pbqadj8wne6r" path="res://textures/icons/chars/bacxkground.png" id="2_fu8b5"]
-[ext_resource type="Texture2D" uid="uid://dd37q5c14tc04" path="res://textures/icons/chars/unk.png" id="3_tm68y"]
+[ext_resource type="Texture2D" uid="uid://dd37q5c14tc04" path="res://textures/icons/chars/unk/none.png" id="3_tm68y"]
 [ext_resource type="Texture2D" uid="uid://d0dtmjhrg3loq" path="res://textures/icons/keys/space.png" id="5_p0wdv"]
 [ext_resource type="AudioStream" uid="uid://ddvh771gjryib" path="res://sounds/sfx/char.ogg" id="5_pehjr"]
 
+[sub_resource type="Gradient" id="Gradient_p0wdv"]
+interpolation_color_space = 2
+colors = PackedColorArray(0, 0, 0, 1, 0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pehjr"]
+gradient = SubResource("Gradient_p0wdv")
+width = 8
+height = 8
+fill_from = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_c26ww"]
+colors = PackedColorArray(0, 0, 0, 1, 0.501407, 0.501406, 0.501406, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yhmkw"]
+gradient = SubResource("Gradient_c26ww")
+width = 8
+height = 8
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+
 [sub_resource type="LabelSettings" id="LabelSettings_fu8b5"]
-font = ExtResource("1_rc1id")
+font = ExtResource("1_p0wdv")
+font_size = 20
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -96,20 +119,19 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 720)
 theme_override_constants/margin_left = 248
-theme_override_constants/margin_top = 512
-theme_override_constants/margin_right = 248
+theme_override_constants/margin_top = 480
 
 [node name="dialogue-plate" type="Control" parent="margin"]
 layout_mode = 2
 
-[node name="plate-outline" type="ColorRect" parent="margin/dialogue-plate"]
+[node name="plate-outline" type="TextureRect" parent="margin/dialogue-plate"]
 layout_mode = 2
 offset_right = 784.0
 offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(392, 208)
-color = Color(0.359069, 0.359069, 0.359069, 1)
+texture = SubResource("GradientTexture2D_pehjr")
 
 [node name="margin" type="MarginContainer" parent="margin/dialogue-plate/plate-outline"]
 layout_mode = 1
@@ -119,13 +141,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(392, 208)
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="plate-background" type="ColorRect" parent="margin/dialogue-plate/plate-outline/margin"]
+[node name="plate-background" type="TextureRect" parent="margin/dialogue-plate/plate-outline/margin"]
 layout_mode = 2
-color = Color(0.241156, 0.241156, 0.241156, 1)
+texture = SubResource("GradientTexture2D_yhmkw")
 
 [node name="margin" type="MarginContainer" parent="margin/dialogue-plate/plate-outline/margin/plate-background"]
 layout_mode = 1
@@ -139,11 +162,21 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
+[node name="name" type="Label" parent="margin/dialogue-plate/plate-outline/margin/plate-background/margin"]
+custom_minimum_size = Vector2(564, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "[Example name]:"
+label_settings = SubResource("LabelSettings_fu8b5")
+autowrap_mode = 2
+uppercase = true
+
 [node name="text" type="Label" parent="margin/dialogue-plate/plate-outline/margin/plate-background/margin"]
 custom_minimum_size = Vector2(564, 152)
 layout_mode = 2
-size_flags_vertical = 1
-text = "example test xds. bla-bla-bla-ble-ble-ble dfc df d dsf sd sg s g sg dsgdsg fsd gsdg sdg sdg g fdghb dfg h fgh fgh brfgd b45 h 465tjh 65j h65jh 54e 6h g5234h 45th 24jh 42 jh4 5 45h h 465  j 65 y45 hy54h 654 67o  867o k 785 j5 jh54 h534 6 j 56kj 45 k 7uk 467j h5 h5 6j675 jkm 46 k7 k 4 u675 jn 5 j r23f432."
+size_flags_vertical = 8
+text = "
+example test xds. bla-bla-bla-ble-ble-ble dfc df d dsf sd sg s g sg dsgdsg fsd gsdg sdg sdg g fdghb dfg h fgh fgh brfgd b45 h 465tjh 65j h65jh 54e 6h g5234h 45th 24jh 42 jh4 5 45h h 465  j 65 y45 hy54h 654 67o  867o k 785 j5 jh54 h534 6 j 56kj 45 k 7uk 467j h5 h5 6j675 jkm 46 k7 k 4 u675 jn 5 j r23f432."
 label_settings = SubResource("LabelSettings_fu8b5")
 autowrap_mode = 2
 uppercase = true
@@ -151,30 +184,36 @@ uppercase = true
 [node name="char-bg" type="TextureRect" parent="margin/dialogue-plate/plate-outline/margin/plate-background"]
 modulate = Color(0.64, 0.64, 0.64, 1)
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 136.0
 texture = ExtResource("2_fu8b5")
 
 [node name="char-icon" type="TextureRect" parent="margin/dialogue-plate/plate-outline/margin/plate-background"]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 144.0
+offset_bottom = 130.0
+pivot_offset = Vector2(64, 128)
 texture = ExtResource("3_tm68y")
 
 [node name="key-space" type="TextureRect" parent="margin/dialogue-plate/plate-outline/margin/plate-background"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 180.0
+offset_left = 16.0
+offset_top = 140.0
+offset_right = 144.0
+offset_bottom = 188.0
 texture = SubResource("AtlasTexture_pehjr")
+stretch_mode = 5
 
 [node name="key-space-pressed" type="TextureRect" parent="margin/dialogue-plate/plate-outline/margin/plate-background/key-space"]
-visible = false
 layout_mode = 0
-offset_right = 84.0
+offset_right = 128.0
 offset_bottom = 48.0
 texture = SubResource("AtlasTexture_p0wdv")
+stretch_mode = 5
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
