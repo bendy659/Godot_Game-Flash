@@ -2,11 +2,13 @@ extends Node
 
 var translations: Dictionary = {
 	"names": {
-		"ru": {
-			"unk": "Неизвестный"
+		"dictor": {
+			"ru": "Диктор",
+			"en": "Dictor"
 		},
-		"en": {
-			"unk": "Unknown"
+		"unk": {
+			"ru": "Неизвестный",
+			"en": "Unknown"
 		}
 	},
 	"main_menu": {
@@ -73,22 +75,16 @@ var translations: Dictionary = {
 		},
 		"buttons": {
 			"start-game": {
-				"name": {
-					"ru": "Запуск",
-					"en": "Start"
-				}
+				"ru": "Запуск",
+				"en": "Start"
 			},
 			"settings": {
-				"name": {
-					"ru": "Настройки",
-					"en": "Settings"
-				}
+				"ru": "Настройки",
+				"en": "Settings"
 			},
-			"leave": {
-				"name": {
-					"ru": "Ливнуть",
-					"en": "Leave"
-				}
+			"exit": {
+				"ru": "Ливнуть",
+				"en": "Leave"
 			}
 		}
 	},
@@ -117,14 +113,18 @@ var translations: Dictionary = {
 		"main_menu": {
 			"button_leave": {
 				"ru": [
-					"[unk:none]: XDDDXDXDDX.",
-					"[unk:none]: Иш чё захотел...",
-					"[unk:none]: Ты еще даже не начал, а уже ссышся и домой просишся."
+					"[unk:none] XDDDXDXDDX.",
+					"[unk:none] Иш чё захотел...",
+					"[unk:none] Ты еще даже не начал, а уже ссышся и домой просишся.",
+					"XDDDDDS",
+					"ой..."
 				],
 				"en": [
-					"[unk:none]: XDDDXDXDDX.",
-					"[unk:none]: Look at what he wanted...",
-					"[unk:none]: You haven't even started, and you're already scared shitless and begging to go home."
+					"[unk:none] XDDDXDXDDX.",
+					"[unk:none] Look at what he wanted...",
+					"[unk:none] You haven't even started, and you're already scared shitless and begging to go home.",
+					"XDDDDDS",
+					"ops..."
 				]
 			}
 		}

@@ -9,7 +9,7 @@ var is_game_pause: bool = false
 var langs: Array[Dictionary] = [
 	{ # 0 - ru
 		"id": "ru",
-		"name": "Russian (Русский)"
+		"name": "Русский (Russia)"
 	},
 	{ # 1 - en
 		"id": "en",

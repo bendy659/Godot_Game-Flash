@@ -47,7 +47,6 @@ var sfx_vol: float = GameSettings.get_volume("sfx")
 ## ====
 
 @onready var tab_container: TabContainer = $margin/control/panel/tab_container
-var signals: Signals = Signals
 
 ## Init
 func _ready() -> void:
@@ -71,10 +70,10 @@ func _ready() -> void:
 		)
 		if GameSettings.language == id:
 			lang_val.select(i)
-			signals.language_change.emit(i)
+			Signals.language_change.emit(i)
 	
 	## Connect signals
-	signals.language_change.connect(_on_game_language_change)
+	Signals.language_change.connect(_on_game_language_change)
 	
 
 func _on_exit_pressed() -> void:
@@ -97,7 +96,7 @@ func _on_save_pressed() -> void:
 
 func _on_language_selected(index: int) -> void:
 	GameSettings.language = GameData.langs[index]["id"]
-	signals.language_change.emit(index)
+	Signals.language_change.emit(index)
 	print_debug("Current language: %s" % GameSettings.language)
 
 
@@ -132,8 +131,6 @@ func _on_sfx_volume_changed(value: float) -> void:
 ## ====
 
 func _on_game_language_change(index: int):
-	var lang = GameSettings.language
-	
 	var tabs = [
 		{
 			"panel": $"margin/control/panel/tab_container/ОБЩЕЕ",
@@ -186,10 +183,7 @@ func _on_game_language_change(index: int):
 	## ----
 	
 	for i in range(tabs.size()):
-		tab_container.set_tab_title(
-			i,
-			Languages.translate_label(tabs[i]["id"])
-		)
+		tab_container.set_tab_title(i, Languages.translate_label(tabs[i]["id"]))
 	
 	for text in texts:
 		text["label"].text = Languages.translate_label(text["id"])

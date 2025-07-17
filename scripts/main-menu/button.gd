@@ -5,6 +5,8 @@ var is_exit: bool = false
 
 func _ready() -> void:
 	if name == "exit": exit_origin_pos = position
+	
+	Signals.language_change.connect(_on_game_language_change)
 
 func _physics_process(delta: float) -> void:
 	if is_hovered():
@@ -38,9 +40,12 @@ func _physics_process(delta: float) -> void:
 				
 				var dials = Languages.translate_array("dialogues.main_menu.button_leave")
 				for i in dials:
-					dialogue_box_context += [DialogueBox.DialogueContext.new(i, "unk")]
+					dialogue_box_context += [DialogueBox.DialogueContext.new(i)]
 				
 				print_debug("%s\n%s" % [dials, dialogue_box_context])
 				
 				DialogueBox.create(dialogue_box_context)
 				disabled = false
+
+func _on_game_language_change(index: int) -> void:
+	text = Languages.translate_label("main_menu.buttons."+name)
