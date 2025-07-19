@@ -128,6 +128,15 @@ var translations: Dictionary = {
 				]
 			}
 		}
+	},
+	
+	"toasts": {
+		"music_manager": {
+			"current_playing": {
+				"ru": "Сейчас играет",
+				"en": "Current playing"
+			}
+		}
 	}
 }
 

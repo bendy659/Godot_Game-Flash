@@ -19,6 +19,5 @@ func _ready() -> void:
 	anims.play("enter")
 	
 	GameSettings.add_stream("music", [music_bg])
-
 func _process(delta: float) -> void:
 	background.texture.noise.offset += Vector3(delta * scroll_speed, delta * scroll_speed, delta * scroll_speed)

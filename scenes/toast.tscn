@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5bluvkw11uhj"]
+
+[ext_resource type="Texture2D" uid="uid://g8tqd7116aqd" path="res://textures/toast.png" id="1_4a5r4"]
+[ext_resource type="Script" uid="uid://dukkjk2ildw60" path="res://scripts/toast.gd" id="1_4iex2"]
+[ext_resource type="FontFile" uid="uid://hbcmd4u1tc1d" path="res://fonts/Blockblueprint-LV7z5.ttf" id="3_vkair"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k51d8"]
+atlas = ExtResource("1_4a5r4")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a5r4"]
+atlas = ExtResource("1_4a5r4")
+region = Rect2(4, 0, 13, 3)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k51d8"]
+load_path = "res://.godot/imported/toast.png-461ce452f2d90cfc924f846e65cf700e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iex2"]
+atlas = SubResource("CompressedTexture2D_k51d8")
+region = Rect2(0, 4, 3, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkair"]
+atlas = ExtResource("1_4a5r4")
+region = Rect2(4, 4, 13, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bycar"]
+atlas = SubResource("CompressedTexture2D_k51d8")
+region = Rect2(0, 12, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx06n"]
+atlas = ExtResource("1_4a5r4")
+region = Rect2(4, 12, 13, 6)
+
+[sub_resource type="Gradient" id="Gradient_bycar"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kx06n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k46ej"]
+width = 16
+height = 16
+color_ramp = SubResource("Gradient_bycar")
+noise = SubResource("FastNoiseLite_kx06n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2kld"]
+font = ExtResource("3_vkair")
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4iex2"]
+font = ExtResource("3_vkair")
+font_size = 14
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4iex2")
+
+[node name="toast" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 16.0
+offset_right = -166.0
+offset_bottom = 16.0
+grow_horizontal = 0
+
+[node name="left-top" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_k51d8")
+
+[node name="top" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 16.0
+offset_right = 166.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_4a5r4")
+
+[node name="left" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_4iex2")
+
+[node name="center" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_vkair")
+
+[node name="left_bottom" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 0
+offset_top = 32.0
+offset_right = 16.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_bycar")
+
+[node name="bottom" type="TextureRect" parent="toast"]
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 166.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_kx06n")
+
+[node name="icon" type="TextureRect" parent="toast"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 45.0
+offset_bottom = 43.0
+texture = SubResource("NoiseTexture2D_k46ej")
+expand_mode = 1
+
+[node name="name" type="Label" parent="toast"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 7.0
+offset_right = 205.0
+offset_bottom = 57.82
+text = "Example name XDDDDS"
+label_settings = SubResource("LabelSettings_c2kld")
+autowrap_mode = 2
+max_lines_visible = 1
+
+[node name="description" type="Label" parent="toast"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 30.0
+offset_right = 153.0
+offset_bottom = 45.0
+text = "example description"
+label_settings = SubResource("LabelSettings_4iex2")
+
+[node name="animator" type="AnimationPlayer" parent="."]

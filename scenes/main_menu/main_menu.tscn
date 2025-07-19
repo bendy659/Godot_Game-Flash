@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbayk8hukbhcg"]
+[gd_scene load_steps=16 format=3 uid="uid://cbayk8hukbhcg"]
 
 [ext_resource type="Script" uid="uid://wp0outqr8uma" path="res://scripts/main-menu/main-menu.gd" id="1_fsom3"]
 [ext_resource type="Shader" uid="uid://v2bludomga6l" path="res://shaders/bitmap.gdshader" id="1_wem23"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://d1bdy7msk7dep" path="res://themes/main_menu.tres" id="3_uqeha"]
 [ext_resource type="Script" uid="uid://cmm3dkv1ke2g0" path="res://scripts/main-menu/button.gd" id="5_wem23"]
 [ext_resource type="AudioStream" uid="uid://1jq2fnm8ho7n" path="res://sounds/musics/main_menu_0.mp3" id="6_3ovsr"]
+[ext_resource type="Texture2D" uid="uid://dmoauuuvmv0ch" path="res://textures/main_menu/button_border.png" id="6_5seab"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wem23"]
 shader = ExtResource("1_wem23")
@@ -26,53 +27,9 @@ height = 128
 color_ramp = SubResource("Gradient_uqeha")
 noise = SubResource("FastNoiseLite_wem23")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wem23"]
-bg_color = Color(1, 0, 0, 0)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_color = Color(1, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 24.0
-expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ovsr"]
-bg_color = Color(0.5, 0, 0, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
-border_color = Color(1, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 24.0
-expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqeha"]
-bg_color = Color(1, 0, 0, 0)
-border_width_left = 16
-border_width_right = 16
-border_color = Color(1, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 24.0
-expand_margin_bottom = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xg86"]
+atlas = ExtResource("6_5seab")
+region = Rect2(0, 0, 7, 16)
 
 [sub_resource type="Animation" id="Animation_wem23"]
 length = 0.001
@@ -511,10 +468,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -143.5
-offset_top = -24.0
-offset_right = 143.5
-offset_bottom = 24.0
+offset_left = -73.5
+offset_top = -22.5
+offset_right = 73.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(143.5, 24)
@@ -523,9 +480,39 @@ size_flags_vertical = 4
 theme = ExtResource("3_uqeha")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-text = "Запуск"
+text = "ЗАПУСК"
 icon_alignment = 1
 script = ExtResource("5_wem23")
+
+[node name="border-left" type="TextureRect" parent="menu/margin/v_box_container/control-0/start-game"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 7.0
+offset_bottom = 8.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(7, 6.75)
+texture = SubResource("AtlasTexture_4xg86")
+
+[node name="border-right" type="TextureRect" parent="menu/margin/v_box_container/control-0/start-game"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(0, 6.75)
+texture = SubResource("AtlasTexture_4xg86")
+flip_h = true
 
 [node name="control-1" type="Control" parent="menu/margin/v_box_container"]
 layout_mode = 2
@@ -578,9 +565,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_uqeha")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_wem23")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3ovsr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_uqeha")
 text = "ВЫРУБАЙ"
 icon_alignment = 1
 script = ExtResource("5_wem23")

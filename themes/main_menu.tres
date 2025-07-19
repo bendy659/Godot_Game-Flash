@@ -4,51 +4,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djdlk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djdlk"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 16
-border_width_right = 16
-border_color = Color(1, 0.916667, 0, 1)
-border_blend = true
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 32.0
-expand_margin_bottom = 16.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_058lc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl5h2"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 16
-border_width_right = 16
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 8.0
-expand_margin_top = 8.0
-expand_margin_right = 16.0
-expand_margin_bottom = 8.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ik4eo"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va2tg"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 16
-border_width_right = 16
-border_width_bottom = 16
-border_color = Color(0.0500001, 1, 0, 1)
-border_blend = true
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 8.0
-expand_margin_top = 8.0
-expand_margin_right = 16.0
-expand_margin_bottom = 8.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75ofa"]
 
 [sub_resource type="GDScript" id="GDScript_djdlk"]
 
@@ -87,9 +47,9 @@ Button/colors/font_pressed_color = Color(0, 1, 0, 1)
 Button/constants/h_separation = 16
 Button/constants/icon_max_width = 16
 Button/styles/focus = SubResource("StyleBoxEmpty_djdlk")
-Button/styles/hover = SubResource("StyleBoxFlat_djdlk")
-Button/styles/normal = SubResource("StyleBoxFlat_pl5h2")
-Button/styles/pressed = SubResource("StyleBoxFlat_va2tg")
+Button/styles/hover = SubResource("StyleBoxEmpty_058lc")
+Button/styles/normal = SubResource("StyleBoxEmpty_ik4eo")
+Button/styles/pressed = SubResource("StyleBoxEmpty_75ofa")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ed0ms")
 TabContainer/constants/side_margin = 0
 TabContainer/font_sizes/font_size = 24

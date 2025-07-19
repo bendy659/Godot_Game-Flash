@@ -24,6 +24,7 @@ GameData="*res://scripts/_global/GameData.gd"
 GameSettings="*res://scripts/_global/GameSettings.gd"
 LoadingScene="*res://scripts/_global/LoadingScene.gd"
 Signals="*res://scripts/_global/Signals.gd"
+ToastManager="*res://scripts/_global/ToastManager.gd"
 
 [display]
 

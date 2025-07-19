@@ -1,10 +1,35 @@
 extends Button
 
+@onready var left := $"border-left"
+@onready var right := $"border-right"
+
 var exit_origin_pos: Vector2
 var is_exit: bool = false
 
+var border_style: Array[Dictionary] = [
+	{ # Normal
+		"tex-y": 0,
+		"color": Color(255, 255, 255),
+		"origin-x": [0, 0],
+		"margin": 0
+	},
+	{ # Hover
+		"tex-y": 16,
+		"color": Color(255, 255, 0),
+		"origin-x": [0, 0],
+		"margin": 8
+	}
+]
+var c_border_style := border_style[0]
+
 func _ready() -> void:
 	if name == "exit": exit_origin_pos = position
+	
+	match name:
+		"start-game":
+			centry_button(self)
+			left.position.x -= 8
+			right.position.x += 8
 	
 	Signals.language_change.connect(_on_game_language_change)
 
@@ -13,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		scale = lerp(scale, Vector2(1.25, 1.25), delta * 10)
 	else:
 		scale = lerp(scale, Vector2(1, 1), delta * 10)
-		
+	
 	if is_hovered() && name == "exit":
 		position = lerp(
 			exit_origin_pos,
@@ -49,3 +74,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_game_language_change(index: int) -> void:
 	text = Languages.translate_label("main_menu.buttons."+name)
+
+func centry_button(button: Button) -> void:
+	var width = button.size.x
+	var height = button.size.y
+	pivot_offset = Vector2(width / 2, height / 2)
+	button.set_anchors_preset(Control.PRESET_CENTER)
